@@ -36,7 +36,9 @@ import org.openelisglobal.common.util.ConfigurationProperties.Property;
 import org.openelisglobal.common.util.DateUtil;
 import org.openelisglobal.common.util.StringUtil;
 import org.openelisglobal.dataexchange.order.valueholder.ElectronicOrder;
+import org.openelisglobal.dataexchange.order.valueholder.ElectronicOrderType;
 import org.openelisglobal.dataexchange.service.order.ElectronicOrderService;
+import org.openelisglobal.atomfeed.repository.OpenMrsOrderMappingJdbc;
 import org.openelisglobal.observationhistory.service.ObservationHistoryService;
 import org.openelisglobal.observationhistory.service.ObservationHistoryServiceImpl.ObservationType;
 import org.openelisglobal.observationhistory.valueholder.ObservationHistory;
@@ -397,6 +399,11 @@ public class SamplePatientUpdateData {
 
                 sample.setReferringId(externalOrderNumber);
                 sample.setClinicalOrderId(electronicOrder.getId());
+
+                if (ElectronicOrderType.ATOMFEED == electronicOrder.getType()) {
+                    OpenMrsOrderMappingJdbc mappingJdbc = SpringContext.getBean(OpenMrsOrderMappingJdbc.class);
+                    mappingJdbc.markAccessioned(externalOrderNumber, sample.getAccessionNumber(), null);
+                }
             }
         }
     }

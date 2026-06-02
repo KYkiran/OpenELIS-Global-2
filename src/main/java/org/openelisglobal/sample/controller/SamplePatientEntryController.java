@@ -27,11 +27,13 @@ import org.openelisglobal.common.util.ConfigurationProperties;
 import org.openelisglobal.common.util.ConfigurationProperties.Property;
 import org.openelisglobal.common.util.DateUtil;
 import org.openelisglobal.common.validator.BaseErrors;
+import org.openelisglobal.atomfeed.service.AtomFeedElectronicOrderLoader;
 import org.openelisglobal.dataexchange.fhir.FhirUtil;
 import org.openelisglobal.dataexchange.fhir.exception.FhirPersistanceException;
 import org.openelisglobal.dataexchange.fhir.exception.FhirTransformationException;
 import org.openelisglobal.dataexchange.fhir.service.FhirTransformService;
 import org.openelisglobal.dataexchange.order.valueholder.ElectronicOrder;
+import org.openelisglobal.dataexchange.order.valueholder.ElectronicOrderType;
 import org.openelisglobal.dataexchange.service.order.ElectronicOrderService;
 import org.openelisglobal.internationalization.MessageUtil;
 import org.openelisglobal.notifications.dao.NotificationDAO;
@@ -168,6 +170,9 @@ public class SamplePatientEntryController extends BaseSampleEntryController {
 
     @Autowired
     private FhirUtil fhirUtil;
+
+    @Autowired
+    private AtomFeedElectronicOrderLoader atomFeedElectronicOrderLoader;
 
     @InitBinder
     public void initBinder(WebDataBinder binder) {
@@ -376,33 +381,37 @@ public class SamplePatientEntryController extends BaseSampleEntryController {
             }
         }
         form.getSampleOrderItems().setExternalOrderNumber(externalOrderNumber);
+        form.setPatientProperties(new PatientManagementInfo());
+        form.setPatientSearch(new PatientSearch());
         if (StringUtils.isNotBlank(externalOrderNumber)) {
             ElectronicOrder eOrder = electronicOrderService.getElectronicOrdersByExternalId(externalOrderNumber).get(0);
             if (eOrder != null) {
                 form.getSampleOrderItems().setPriority(eOrder.getPriority());
-                Task task = fhirUtil.getFhirParser().parseResource(Task.class, eOrder.getData());
-                if (!task.getLocation().isEmpty()) {
-                    Organization organization = organizationService
-                            .getOrganizationByFhirId(task.getLocation().getReferenceElement().getIdPart());
-                    if (organization != null) {
-                        form.getSampleOrderItems().setReferringSiteName(organization.getOrganizationName());
-                        form.getSampleOrderItems().setReferringSiteId(organization.getId());
+                if (ElectronicOrderType.ATOMFEED == eOrder.getType()) {
+                    atomFeedElectronicOrderLoader.applyToForm(form, eOrder);
+                } else {
+                    Task task = fhirUtil.getFhirParser().parseResource(Task.class, eOrder.getData());
+                    if (!task.getLocation().isEmpty()) {
+                        Organization organization = organizationService
+                                .getOrganizationByFhirId(task.getLocation().getReferenceElement().getIdPart());
+                        if (organization != null) {
+                            form.getSampleOrderItems().setReferringSiteName(organization.getOrganizationName());
+                            form.getSampleOrderItems().setReferringSiteId(organization.getId());
+                        }
                     }
-                }
-                if (!task.getOwner().isEmpty()) {
-                    if (StringUtils.isBlank(form.getSampleOrderItems().getProviderPersonId())) {
-                        Reference providerReference = task.getOwner();
-                        Provider provider = providerService.getProviderByFhirId(
-                                UUID.fromString(providerReference.getReferenceElement().getIdPart()));
-                        if (provider != null) {
-                            form.getSampleOrderItems().setProviderPersonId(provider.getPerson().getId());
+                    if (!task.getOwner().isEmpty()) {
+                        if (StringUtils.isBlank(form.getSampleOrderItems().getProviderPersonId())) {
+                            Reference providerReference = task.getOwner();
+                            Provider provider = providerService.getProviderByFhirId(
+                                    UUID.fromString(providerReference.getReferenceElement().getIdPart()));
+                            if (provider != null) {
+                                form.getSampleOrderItems().setProviderPersonId(provider.getPerson().getId());
+                            }
                         }
                     }
                 }
             }
         }
-        form.setPatientProperties(new PatientManagementInfo());
-        form.setPatientSearch(new PatientSearch());
         form.setSampleTypes(userService.getUserSampleTypes(getSysUserId(request), Constants.ROLE_RECEPTION));
         form.setTestSectionList(DisplayListService.getInstance().getList(ListType.TEST_SECTION_ACTIVE));
         form.setCurrentDate(DateUtil.getCurrentDateAsText());

@@ -50,7 +50,9 @@ import org.openelisglobal.dataexchange.fhir.FhirConfig;
 import org.openelisglobal.dataexchange.fhir.FhirUtil;
 import org.openelisglobal.dataexchange.fhir.service.FhirPersistanceService;
 import org.openelisglobal.dataexchange.order.valueholder.ElectronicOrder;
+import org.openelisglobal.dataexchange.order.valueholder.ElectronicOrderType;
 import org.openelisglobal.dataexchange.service.order.ElectronicOrderService;
+import org.openelisglobal.atomfeed.service.AtomFeedLabOrderXmlBuilder;
 import org.openelisglobal.internationalization.MessageUtil;
 import org.openelisglobal.organization.service.OrganizationService;
 import org.openelisglobal.panel.service.PanelService;
@@ -137,6 +139,24 @@ public class LabOrderSearchProvider extends BaseQueryProvider {
             eOrder = eOrders.get(eOrders.size() - 1);
             eOrderStatus = SpringContext.getBean(IStatusService.class)
                     .getExternalOrderStatusForID(eOrder.getStatusId());
+
+            if (ElectronicOrderType.ATOMFEED == eOrder.getType()) {
+                StringBuilder atomFeedXml = new StringBuilder();
+                String atomFeedResult = createAtomFeedSearchResultXML(atomFeedXml);
+                if (!atomFeedResult.equals(VALID)) {
+                    if (atomFeedResult.equals(NOT_FOUND)) {
+                        atomFeedResult = MessageUtil.getMessage("electronic.order.message.orderNotFound");
+                    } else if (atomFeedResult.equals(CANCELED)) {
+                        atomFeedResult = MessageUtil.getMessage("electronic.order.message.canceled");
+                    } else if (atomFeedResult.equals(REALIZED)) {
+                        atomFeedResult = MessageUtil.getMessage("electronic.order.message.realized");
+                    }
+                    atomFeedResult += "\n\n" + MessageUtil.getMessage("electronic.order.message.suggestion");
+                    atomFeedXml.append("empty");
+                }
+                ajaxServlet.sendData(atomFeedXml.toString(), atomFeedResult, request, response);
+                return;
+            }
 
             IGenericClient localFhirClient = fhirUtil.getFhirClient(fhirConfig.getLocalFhirStorePath());
 
@@ -328,6 +348,22 @@ public class LabOrderSearchProvider extends BaseQueryProvider {
         createOrderXML(eOrder.getData(), patientGuid, xml);
 
         return success;
+    }
+
+    private String createAtomFeedSearchResultXML(StringBuilder xml) {
+        if (eOrderStatus == ExternalOrderStatus.Cancelled) {
+            return CANCELED;
+        } else if (eOrderStatus == ExternalOrderStatus.Realized) {
+            return REALIZED;
+        } else if (eOrders.isEmpty()) {
+            return NOT_FOUND;
+        }
+
+        AtomFeedLabOrderXmlBuilder atomFeedLabOrderXmlBuilder = SpringContext.getBean(AtomFeedLabOrderXmlBuilder.class);
+        if (!atomFeedLabOrderXmlBuilder.appendOrderXml(eOrder, xml)) {
+            return NOT_FOUND;
+        }
+        return VALID;
     }
 
     private String getPatientGuid(ElectronicOrder eOrder) {

@@ -766,6 +766,12 @@
             to avoid chicken-and-egg: main project needs plugins, but plugins need main
             JAR. CI builds main JAR first (without plugins), then plugins, then main
             with tests. -->
+        <!-- AtomFeed client (ict4h) -->
+        <dependency>
+            <groupId>org.ict4h</groupId>
+            <artifactId>atomfeed-client</artifactId>
+            <version>1.10.1</version>
+        </dependency>
     </dependencies>
     <repositories>
         <repository>
@@ -784,6 +790,11 @@
             <id>central</id>
             <name>Central Repository</name>
             <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+        <repository>
+            <id>openmrs-repo</id>
+            <name>OpenMRS Nexus Repository</name>
+            <url>https://mavenrepo.openmrs.org/nexus/content/repositories/public</url>
         </repository>
     </repositories>
     <build>
