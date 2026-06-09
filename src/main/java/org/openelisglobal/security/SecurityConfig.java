@@ -104,7 +104,7 @@ public class SecurityConfig {
     // With @Order(1) on httpBasicServletFilterChain, Basic auth is processed first.
     public static final String[] OPEN_PAGES = { "/pluginServlet/**", "/ChangePasswordLogin",
             "/UpdateLoginChangePassword", "/health/**", "/rest/open-configuration-properties", "/docs/UserManual",
-            "/rest/site-branding/**", "/rest/supportedlocales/active" };
+            "/rest/site-branding/**", "/rest/supportedlocales/active", "/ws/feed/**", "/rest/openmrs-atomfeed/**" };
     public static final String[] LOGIN_PAGES = { "/LoginPage", "/ValidateLogin", "/session" };
 
     public static final String[] AUTH_OPEN_PAGES = { "/Home", "/Dashboard", "/Logout", "/MasterListsPage",

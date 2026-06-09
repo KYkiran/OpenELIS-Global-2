@@ -518,6 +518,26 @@ public class OrganizationDAOImpl extends BaseDAOImpl<Organization, String> imple
     }
 
     @Override
+    public Organization getOrganizationByExternalId(String externalId) {
+        if (GenericValidator.isBlankOrNull(externalId)) {
+            return null;
+        }
+
+        String sql = "from Organization o where o.externalId = :externalId";
+
+        try {
+            TypedQuery<Organization> query = entityManager.createQuery(sql, Organization.class);
+            query.setParameter("externalId", externalId.trim());
+            List<Organization> list = query.getResultList();
+            return list.isEmpty() ? null : list.get(0);
+        } catch (HibernateException e) {
+            handleException(e, "getOrganizationByExternalId");
+        }
+
+        return null;
+    }
+
+    @Override
     public Organization getOrganizationByFhirId(String uuid) {
         if (GenericValidator.isBlankOrNull(uuid)) {
             return null;

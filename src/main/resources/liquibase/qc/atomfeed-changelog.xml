@@ -94,4 +94,59 @@
             constraintName="uq_openmrs_order_mapping_order_uuid"/>
     </changeSet>
 
+    <changeSet id="atomfeed-007" author="bluad">
+        <preConditions onFail="MARK_RAN">
+            <not><columnExists tableName="organization" schemaName="clinlims" columnName="external_id"/></not>
+        </preConditions>
+        <addColumn tableName="organization" schemaName="clinlims">
+            <column name="external_id" type="VARCHAR(40)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="atomfeed-008" author="bluad">
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="organization" schemaName="clinlims" columnName="external_id"/>
+            <not><indexExists tableName="organization" schemaName="clinlims" indexName="uq_organization_external_id"/></not>
+        </preConditions>
+        <addUniqueConstraint tableName="organization" schemaName="clinlims"
+            columnNames="external_id" constraintName="uq_organization_external_id"/>
+    </changeSet>
+
+    <changeSet id="atomfeed-009" author="bluad">
+        <preConditions onFail="MARK_RAN">
+            <not><columnExists tableName="openmrs_order_mapping" schemaName="clinlims" columnName="openmrs_organization_id"/></not>
+        </preConditions>
+        <addColumn tableName="openmrs_order_mapping" schemaName="clinlims">
+            <column name="openmrs_organization_id" type="VARCHAR(20)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="atomfeed-010" author="bluad">
+        <preConditions onFail="MARK_RAN">
+            <not><tableExists tableName="event_records" schemaName="clinlims"/></not>
+        </preConditions>
+        <createTable tableName="event_records" schemaName="clinlims">
+            <column name="id" type="SERIAL"><constraints primaryKey="true"/></column>
+            <column name="uuid" type="VARCHAR(40)"><constraints nullable="false"/></column>
+            <column name="title" type="VARCHAR(255)"/>
+            <column name="timestamp" type="TIMESTAMP"/>
+            <column name="uri" type="VARCHAR(255)"/>
+            <column name="object" type="VARCHAR(512)"><constraints nullable="false"/></column>
+            <column name="category" type="VARCHAR(255)"/>
+            <column name="date_created" type="TIMESTAMP" defaultValueComputed="NOW()"/>
+            <column name="tags" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="atomfeed-011" author="bluad">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="event_records" schemaName="clinlims"/>
+            <not><indexExists tableName="event_records" schemaName="clinlims" indexName="idx_event_records_category_created"/></not>
+        </preConditions>
+        <createIndex tableName="event_records" schemaName="clinlims" indexName="idx_event_records_category_created">
+            <column name="category"/>
+            <column name="date_created"/>
+        </createIndex>
+    </changeSet>
+
 </databaseChangeLog>

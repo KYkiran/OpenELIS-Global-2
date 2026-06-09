@@ -74,6 +74,9 @@
             length="20" />
         <property name="fhirUuid" column="fhir_uuid"
             type="java.util.UUID" />
+        <property name="externalId" type="java.lang.String">
+            <column name="external_id" length="40" />
+        </property>
 
         <set name="organizationTypes"
             table="organization_organization_type" cascade="all" lazy="true"

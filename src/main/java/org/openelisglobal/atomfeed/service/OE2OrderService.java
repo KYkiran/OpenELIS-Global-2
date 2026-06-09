@@ -11,6 +11,7 @@ import org.openelisglobal.atomfeed.mapping.OpenMrsConceptTestMapping.ConceptTest
 import org.openelisglobal.atomfeed.repository.OpenMrsOrderMappingJdbc;
 import org.openelisglobal.atomfeed.repository.OpenMrsOrderMappingStatus;
 import org.openelisglobal.atomfeed.util.BahmniEncounterParser;
+import org.openelisglobal.atomfeed.util.OpenMrsLocationResolver;
 import org.openelisglobal.common.services.IStatusService;
 import org.openelisglobal.common.services.StatusService.ExternalOrderStatus;
 import org.openelisglobal.common.util.DateUtil;
@@ -21,6 +22,8 @@ import org.openelisglobal.dataexchange.order.action.MessagePatient;
 import org.openelisglobal.dataexchange.order.valueholder.ElectronicOrder;
 import org.openelisglobal.dataexchange.order.valueholder.ElectronicOrderType;
 import org.openelisglobal.dataexchange.service.order.ElectronicOrderService;
+import org.openelisglobal.organization.service.OrganizationService;
+import org.openelisglobal.organization.valueholder.Organization;
 import org.openelisglobal.patient.service.PatientService;
 import org.openelisglobal.patient.valueholder.Patient;
 import org.openelisglobal.sample.valueholder.OrderPriority;
@@ -57,6 +60,12 @@ public class OE2OrderService {
     @Autowired
     private ElectronicOrderService electronicOrderService;
 
+    @Autowired
+    private OpenMrsLocationResolver locationResolver;
+
+    @Autowired
+    private OrganizationService organizationService;
+
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Transactional
@@ -83,8 +92,8 @@ public class OE2OrderService {
         log.info("  Mapped test    : {}", mapping != null ? mapping.getOe2TestId() : "none");
 
         MessagePatient mp = buildMessagePatient(encounter, patientData);
-        AtomFeedOrderPayload payload = buildPayload(encounterUuid, orderUuid, order, conceptUuid, conceptDisplay,
-                mapping, mp);
+        AtomFeedOrderPayload payload = buildPayload(encounterUuid, orderUuid, order, encounter, conceptUuid,
+                conceptDisplay, mapping, mp);
 
         ElectronicOrder eOrder = new ElectronicOrder();
         eOrder.setExternalId(orderUuid);
@@ -95,8 +104,8 @@ public class OE2OrderService {
         }
 
         boolean mapped = mapping != null;
-        eOrder.setStatusId(statusService.getStatusID(
-                mapped ? ExternalOrderStatus.Entered : ExternalOrderStatus.NonConforming));
+        eOrder.setStatusId(
+                statusService.getStatusID(mapped ? ExternalOrderStatus.Entered : ExternalOrderStatus.NonConforming));
         eOrder.setOrderTimestamp(DateUtil.getNowAsTimestamp());
 
         IOrderPersister persister = orderPersisterFactory.getObject();
@@ -116,7 +125,8 @@ public class OE2OrderService {
         String patientId = patient != null ? patient.getId() : null;
         String mappingStatus = mapped ? OpenMrsOrderMappingStatus.QUEUED : OpenMrsOrderMappingStatus.MAPPING_FAILED;
         String errorMessage = mapped ? null : "No OE2 test mapping for OpenMRS concept " + conceptUuid;
-        orderMappingJdbc.insert(encounterUuid, orderUuid, patientId, mappingStatus, errorMessage);
+        orderMappingJdbc.insert(encounterUuid, orderUuid, patientId, payload.getOpenmrsOrganizationId(), mappingStatus,
+                errorMessage);
 
         log.info("Successfully persisted AtomFeed electronic order {} (status={})", orderUuid, mappingStatus);
     }
@@ -169,7 +179,8 @@ public class OE2OrderService {
     }
 
     private AtomFeedOrderPayload buildPayload(String encounterUuid, String orderUuid, JsonNode order,
-            String conceptUuid, String conceptDisplay, ConceptTestMappingInfo mapping, MessagePatient mp) {
+            JsonNode encounter, String conceptUuid, String conceptDisplay, ConceptTestMappingInfo mapping,
+            MessagePatient mp) {
         AtomFeedOrderPayload payload = new AtomFeedOrderPayload();
         payload.setEncounterUuid(encounterUuid);
         payload.setOrderUuid(orderUuid);
@@ -178,14 +189,27 @@ public class OE2OrderService {
         payload.setUrgency(order.path("urgency").asText(""));
         payload.setPatientGuid(mp.getGuid());
         if (!GenericValidator.isBlankOrNull(mp.getFirstName()) || !GenericValidator.isBlankOrNull(mp.getLastName())) {
-            payload.setPatientDisplayName(
-                    (mp.getFirstName() + " " + mp.getLastName()).trim());
+            payload.setPatientDisplayName((mp.getFirstName() + " " + mp.getLastName()).trim());
         }
         if (mapping != null) {
             payload.setOe2TestId(mapping.getOe2TestId());
             payload.setOe2TestName(mapping.getOe2TestName());
             payload.setSampleType(mapping.getSampleType());
         }
+
+        Integer openMrsOrgId = locationResolver.resolveOrganizationId(encounter);
+        if (openMrsOrgId != null) {
+            payload.setOpenmrsOrganizationId(String.valueOf(openMrsOrgId));
+            Organization referringSite = organizationService.getOrganizationByExternalId(String.valueOf(openMrsOrgId));
+            if (referringSite != null) {
+                payload.setReferringSiteId(referringSite.getId());
+                payload.setReferringSiteName(referringSite.getOrganizationName());
+            } else {
+                log.warn("No OE2 organization synced for OpenMRS org {}", openMrsOrgId);
+            }
+        }
+        payload.setLocationUuid(locationResolver.resolveLocationUuid(encounter));
+
         return payload;
     }
 }

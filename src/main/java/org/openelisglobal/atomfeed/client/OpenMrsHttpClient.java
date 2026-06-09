@@ -44,8 +44,7 @@ public class OpenMrsHttpClient {
 
         log.info("Fetching from OpenMRS: {}", url);
 
-        String credentials = Base64.getEncoder()
-                .encodeToString((openmrsUsername + ":" + openmrsPassword).getBytes());
+        String credentials = Base64.getEncoder().encodeToString((openmrsUsername + ":" + openmrsPassword).getBytes());
 
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url))
                 .header("Authorization", "Basic " + credentials).header("Accept", "application/json").GET()
@@ -62,6 +61,27 @@ public class OpenMrsHttpClient {
         }
 
         return response.body();
+    }
+
+    public void putJson(String contentPath, String jsonBody) throws IOException, InterruptedException {
+        String url = contentPath.startsWith("http") ? contentPath : openmrsBaseUrl + contentPath;
+
+        log.info("PUT to OpenMRS: {}", url);
+
+        String credentials = Base64.getEncoder().encodeToString((openmrsUsername + ":" + openmrsPassword).getBytes());
+
+        HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url))
+                .header("Authorization", "Basic " + credentials).header("Accept", "application/json")
+                .header("Content-Type", "application/json").PUT(HttpRequest.BodyPublishers.ofString(jsonBody))
+                .timeout(Duration.ofMillis(readTimeoutMs)).build();
+
+        HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+
+        if (response.statusCode() < 200 || response.statusCode() >= 300) {
+            log.error("OpenMRS PUT returned HTTP {} body: {}", response.statusCode(),
+                    response.body().substring(0, Math.min(300, response.body().length())));
+            throw new OpenMrsHttpException(response.statusCode(), url);
+        }
     }
 
     public static class OpenMrsHttpException extends RuntimeException {

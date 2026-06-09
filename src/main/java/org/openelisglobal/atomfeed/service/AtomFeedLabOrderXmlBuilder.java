@@ -39,7 +39,8 @@ public class AtomFeedLabOrderXmlBuilder {
         }
 
         try {
-            AtomFeedOrderPayload payload = objectMapper.readValue(electronicOrder.getData(), AtomFeedOrderPayload.class);
+            AtomFeedOrderPayload payload = objectMapper.readValue(electronicOrder.getData(),
+                    AtomFeedOrderPayload.class);
             appendOrderXml(payload, electronicOrder, xml);
             return true;
         } catch (Exception e) {
@@ -56,6 +57,18 @@ public class AtomFeedLabOrderXmlBuilder {
         xml.append("<patient>");
         XMLUtil.appendKeyValue("guid", patientGuid, xml);
         xml.append("</patient>");
+
+        if (!GenericValidator.isBlankOrNull(payload.getReferringSiteId())) {
+            xml.append("<requestingOrg>");
+            XMLUtil.appendKeyValue("id", payload.getReferringSiteId(), xml);
+            if (!GenericValidator.isBlankOrNull(payload.getReferringSiteName())) {
+                XMLUtil.appendKeyValue("name", payload.getReferringSiteName(), xml);
+            }
+            if (!GenericValidator.isBlankOrNull(payload.getOpenmrsOrganizationId())) {
+                XMLUtil.appendKeyValue("openmrsOrganizationId", payload.getOpenmrsOrganizationId(), xml);
+            }
+            xml.append("</requestingOrg>");
+        }
 
         xml.append("<sampleTypes>");
         if (!GenericValidator.isBlankOrNull(payload.getOe2TestId())) {

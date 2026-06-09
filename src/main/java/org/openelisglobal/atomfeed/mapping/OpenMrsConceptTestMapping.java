@@ -29,10 +29,12 @@ public class OpenMrsConceptTestMapping {
     private TestService testService;
 
     private final Map<String, ConceptTestMappingInfo> conceptToTest = new HashMap<>();
+    private final Map<String, String> testToConcept = new HashMap<>();
 
     @PostConstruct
     public void init() {
         conceptToTest.clear();
+        testToConcept.clear();
         try (InputStream in = new FileInputStream(conceptMapPath)) {
             int count = parseCsv(in);
             LogEvent.logInfo(getClass().getSimpleName(), "init",
@@ -52,6 +54,13 @@ public class OpenMrsConceptTestMapping {
 
     public boolean hasMapping(String openMrsConceptUuid) {
         return resolve(openMrsConceptUuid).isPresent();
+    }
+
+    public Optional<String> resolveConceptUuidByTestId(String oe2TestId) {
+        if (oe2TestId == null || oe2TestId.isBlank()) {
+            return Optional.empty();
+        }
+        return Optional.ofNullable(testToConcept.get(oe2TestId.trim()));
     }
 
     int parseCsv(InputStream in) throws IOException {
@@ -82,6 +91,7 @@ public class OpenMrsConceptTestMapping {
 
                 conceptToTest.put(conceptUuid,
                         new ConceptTestMappingInfo(conceptUuid, oe2TestId, oe2TestName, sampleType));
+                testToConcept.put(oe2TestId, conceptUuid);
                 count++;
             }
         }

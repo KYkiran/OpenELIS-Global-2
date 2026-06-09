@@ -89,6 +89,8 @@ public interface OrganizationDAO extends BaseDAO<Organization, String> {
 
     Organization getOrganizationByFhirId(String uuid);
 
+    Organization getOrganizationByExternalId(String externalId);
+
     Organization getOrganizationByCode(String code);
 
     /**

@@ -26,15 +26,20 @@ public class BahmniEncounterParserTest {
 
     @Test
     public void resolveConceptDisplay_readsBahmniConceptNameString() throws Exception {
-        JsonNode order = objectMapper.readTree(
-                "{\"concept\":{\"uuid\":\"33cb5232-172e-4769-ad2d-49fadaafc318\",\"name\":\"CD4 Test\"}}");
+        JsonNode order = objectMapper
+                .readTree("{\"concept\":{\"uuid\":\"33cb5232-172e-4769-ad2d-49fadaafc318\",\"name\":\"CD4 Test\"}}");
         assertEquals("CD4 Test", BahmniEncounterParser.resolveConceptDisplay(order));
     }
 
     @Test
+    public void resolveLocationUuid_readsEncounterFields() throws Exception {
+        JsonNode encounter = objectMapper.readTree("{\"locationUuid\":\"loc-1\",\"organizationId\":42}");
+        assertEquals("loc-1", BahmniEncounterParser.resolveLocationUuid(encounter));
+    }
+
+    @Test
     public void resolveConceptUuid_prefersTopLevelConceptUuid() throws Exception {
-        JsonNode order = objectMapper.readTree(
-                "{\"conceptUuid\":\"top-level\",\"concept\":{\"uuid\":\"nested\"}}");
+        JsonNode order = objectMapper.readTree("{\"conceptUuid\":\"top-level\",\"concept\":{\"uuid\":\"nested\"}}");
         assertEquals("top-level", BahmniEncounterParser.resolveConceptUuid(order));
     }
 
@@ -46,15 +51,14 @@ public class BahmniEncounterParserTest {
 
     @Test
     public void isLaboratoryOrder_acceptsLabTestConceptClass() throws Exception {
-        JsonNode order = objectMapper.readTree(
-                "{\"orderType\":\"\",\"concept\":{\"conceptClass\":\"LabTest\"}}");
+        JsonNode order = objectMapper.readTree("{\"orderType\":\"\",\"concept\":{\"conceptClass\":\"LabTest\"}}");
         assertTrue(BahmniEncounterParser.isLaboratoryOrder(order, ""));
     }
 
     @Test
     public void isLaboratoryOrder_rejectsRadiologyOrder() throws Exception {
-        JsonNode order = objectMapper.readTree(
-                "{\"orderType\":\"Radiology Order\",\"concept\":{\"conceptClass\":\"Radiology\"}}");
+        JsonNode order = objectMapper
+                .readTree("{\"orderType\":\"Radiology Order\",\"concept\":{\"conceptClass\":\"Radiology\"}}");
         assertFalse(BahmniEncounterParser.isLaboratoryOrder(order, "Radiology Order"));
     }
 }

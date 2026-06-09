@@ -17,21 +17,24 @@ public final class BahmniEncounterParser {
                 encounter.path("patient").path("uuid").asText(null));
     }
 
+    public static String resolveLocationUuid(JsonNode encounter) {
+        return firstNonBlank(encounter.path("locationUuid").asText(null),
+                encounter.path("location").path("uuid").asText(null), encounter.path("visitLocationUuid").asText(null));
+    }
+
     public static String resolveOrderType(JsonNode order) {
         JsonNode orderTypeNode = order.get("orderType");
         if (orderTypeNode != null && orderTypeNode.isTextual()) {
             return orderTypeNode.asText("");
         }
         if (orderTypeNode != null && orderTypeNode.isObject()) {
-            return firstNonBlank(orderTypeNode.path("name").asText(null),
-                    orderTypeNode.path("display").asText(null));
+            return firstNonBlank(orderTypeNode.path("name").asText(null), orderTypeNode.path("display").asText(null));
         }
         return order.path("type").asText("");
     }
 
     public static String resolveConceptUuid(JsonNode order) {
-        return firstNonBlank(order.path("conceptUuid").asText(null),
-                order.path("concept").path("uuid").asText(null));
+        return firstNonBlank(order.path("conceptUuid").asText(null), order.path("concept").path("uuid").asText(null));
     }
 
     public static String resolveConceptDisplay(JsonNode order) {

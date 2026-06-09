@@ -90,6 +90,9 @@ public class Organization extends EnumValueItemImpl implements SimpleBaseEntity<
     private Set<OrganizationType> organizationTypes;
     private UUID fhirUuid;
 
+    @SafeHtml(level = SafeHtml.SafeListLevel.NONE)
+    private String externalId;
+
     public Organization() {
         super();
         organization = new ValueHolder();
@@ -296,5 +299,13 @@ public class Organization extends EnumValueItemImpl implements SimpleBaseEntity<
     @JsonIgnore
     public String getFhirUuidAsString() {
         return fhirUuid == null ? "" : fhirUuid.toString();
+    }
+
+    public String getExternalId() {
+        return externalId;
+    }
+
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
     }
 }

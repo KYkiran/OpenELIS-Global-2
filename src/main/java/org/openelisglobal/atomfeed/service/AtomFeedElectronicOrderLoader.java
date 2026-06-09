@@ -57,6 +57,7 @@ public class AtomFeedElectronicOrderLoader {
             }
 
             populatePatient(form, payload);
+            populateReferringSite(form, payload);
             populateSampleXml(form, payload);
         } catch (Exception e) {
             log.warn("Could not preload AtomFeed electronic order {}: {}", eOrder.getExternalId(), e.getMessage());
@@ -92,6 +93,21 @@ public class AtomFeedElectronicOrderLoader {
             patientInfo.setEmail(person.getEmail());
             patientInfo.setStreetAddress(person.getStreetAddress());
             patientInfo.setCity(person.getCity());
+        }
+    }
+
+    private void populateReferringSite(SamplePatientEntryForm form, AtomFeedOrderPayload payload) {
+        if (GenericValidator.isBlankOrNull(payload.getReferringSiteId())) {
+            return;
+        }
+        SampleOrderItem sampleOrder = form.getSampleOrderItems();
+        if (sampleOrder == null) {
+            sampleOrder = new SampleOrderItem();
+            form.setSampleOrderItems(sampleOrder);
+        }
+        sampleOrder.setReferringSiteId(payload.getReferringSiteId());
+        if (!GenericValidator.isBlankOrNull(payload.getReferringSiteName())) {
+            sampleOrder.setReferringSiteName(payload.getReferringSiteName());
         }
     }
 

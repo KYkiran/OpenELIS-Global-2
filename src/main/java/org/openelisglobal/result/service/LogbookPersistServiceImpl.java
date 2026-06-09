@@ -9,6 +9,7 @@ import java.util.Set;
 import java.util.UUID;
 import org.openelisglobal.analysis.service.AnalysisService;
 import org.openelisglobal.analysis.valueholder.Analysis;
+import org.openelisglobal.atomfeed.service.ResultFeedPublisher;
 import org.openelisglobal.common.services.IStatusService;
 import org.openelisglobal.common.services.ResultSaveService;
 import org.openelisglobal.common.services.StatusService.OrderStatus;
@@ -55,10 +56,14 @@ public class LogbookPersistServiceImpl implements LogbookResultsPersistService {
     @Autowired
     private ReferralSetService referralSetService;
 
+    @Autowired
+    private ResultFeedPublisher resultFeedPublisher;
+
     @Override
     @Transactional
     public List<Analysis> persistDataSet(ResultsUpdateDataSet actionDataSet, List<IResultUpdate> updaters,
             String sysUserId) {
+        java.util.Set<String> accessionsToPublish = new java.util.HashSet<>();
         for (Note note : actionDataSet.getNoteList()) {
             noteService.insert(note);
         }
@@ -98,6 +103,9 @@ public class LogbookPersistServiceImpl implements LogbookResultsPersistService {
         for (ResultSet resultSet : actionDataSet.getModifiedResults()) {
             resultSet.result.setResultEvent(Event.RESULT);
             resultService.update(resultSet.result);
+            if (resultSet.sample != null && resultSet.sample.getAccessionNumber() != null) {
+                accessionsToPublish.add(resultSet.sample.getAccessionNumber());
+            }
 
             if (resultSet.signature != null) {
                 resultSet.signature.setResultId(resultSet.result.getId());
@@ -131,6 +139,11 @@ public class LogbookPersistServiceImpl implements LogbookResultsPersistService {
         for (IResultUpdate updater : updaters) {
             updater.transactionalUpdate(actionDataSet);
         }
+
+        for (String accessionNumber : accessionsToPublish) {
+            resultFeedPublisher.publishForAccession(accessionNumber);
+        }
+
         return reflexAnalysises;
     }
 

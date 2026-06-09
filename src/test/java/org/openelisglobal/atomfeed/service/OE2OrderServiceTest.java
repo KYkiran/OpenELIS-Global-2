@@ -21,6 +21,7 @@ import org.openelisglobal.atomfeed.mapping.OpenMrsConceptTestMapping;
 import org.openelisglobal.atomfeed.mapping.OpenMrsConceptTestMapping.ConceptTestMappingInfo;
 import org.openelisglobal.atomfeed.repository.OpenMrsOrderMappingJdbc;
 import org.openelisglobal.atomfeed.repository.OpenMrsOrderMappingStatus;
+import org.openelisglobal.atomfeed.util.OpenMrsLocationResolver;
 import org.openelisglobal.common.services.IStatusService;
 import org.openelisglobal.common.services.StatusService.ExternalOrderStatus;
 import org.openelisglobal.dataexchange.order.action.IOrderExistanceChecker;
@@ -29,6 +30,7 @@ import org.openelisglobal.dataexchange.order.action.IOrderPersister;
 import org.openelisglobal.dataexchange.order.action.MessagePatient;
 import org.openelisglobal.dataexchange.order.valueholder.ElectronicOrder;
 import org.openelisglobal.dataexchange.service.order.ElectronicOrderService;
+import org.openelisglobal.organization.service.OrganizationService;
 import org.openelisglobal.patient.service.PatientService;
 import org.openelisglobal.patient.valueholder.Patient;
 import org.springframework.beans.factory.ObjectFactory;
@@ -56,6 +58,12 @@ public class OE2OrderServiceTest {
 
     @Mock
     private ElectronicOrderService electronicOrderService;
+
+    @Mock
+    private OpenMrsLocationResolver locationResolver;
+
+    @Mock
+    private OrganizationService organizationService;
 
     @Mock
     private IOrderPersister orderPersister;
@@ -107,7 +115,7 @@ public class OE2OrderServiceTest {
         ArgumentCaptor<ElectronicOrder> orderCaptor = ArgumentCaptor.forClass(ElectronicOrder.class);
         verify(orderPersister).persist(any(MessagePatient.class), orderCaptor.capture());
         assertEquals("entered-id", orderCaptor.getValue().getStatusId());
-        verify(orderMappingJdbc).insert(eq("enc-1"), eq("order-1"), eq("patient-1"),
+        verify(orderMappingJdbc).insert(eq("enc-1"), eq("order-1"), eq("patient-1"), eq(null),
                 eq(OpenMrsOrderMappingStatus.QUEUED), eq(null));
     }
 
@@ -127,7 +135,7 @@ public class OE2OrderServiceTest {
         ArgumentCaptor<ElectronicOrder> orderCaptor = ArgumentCaptor.forClass(ElectronicOrder.class);
         verify(orderPersister).persist(any(MessagePatient.class), orderCaptor.capture());
         assertEquals("nonconforming-id", orderCaptor.getValue().getStatusId());
-        verify(orderMappingJdbc).insert(eq("enc-2"), eq("order-2"), eq(null),
+        verify(orderMappingJdbc).insert(eq("enc-2"), eq("order-2"), eq(null), eq(null),
                 eq(OpenMrsOrderMappingStatus.MAPPING_FAILED), eq("No OE2 test mapping for OpenMRS concept c-2"));
     }
 

@@ -21,7 +21,7 @@ public class OpenMrsOrderMappingJdbcTest extends BaseWebContextSensitiveTest {
         String orderUuid = "openmrs-order-test-" + System.currentTimeMillis();
         String encounterUuid = "openmrs-encounter-test-" + System.currentTimeMillis();
 
-        orderMappingJdbc.insert(encounterUuid, orderUuid, "patient-1", OpenMrsOrderMappingStatus.QUEUED, null);
+        orderMappingJdbc.insert(encounterUuid, orderUuid, "patient-1", "42", OpenMrsOrderMappingStatus.QUEUED, null);
         assertEquals(OpenMrsOrderMappingStatus.QUEUED, orderMappingJdbc.getStatus(orderUuid));
         assertTrue(orderMappingJdbc.exists(orderUuid));
 

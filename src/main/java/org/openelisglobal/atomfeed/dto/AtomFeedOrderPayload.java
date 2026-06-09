@@ -12,6 +12,10 @@ public class AtomFeedOrderPayload {
     private String urgency;
     private String patientGuid;
     private String patientDisplayName;
+    private String openmrsOrganizationId;
+    private String locationUuid;
+    private String referringSiteId;
+    private String referringSiteName;
 
     public String getEncounterUuid() {
         return encounterUuid;
@@ -91,5 +95,37 @@ public class AtomFeedOrderPayload {
 
     public void setPatientDisplayName(String patientDisplayName) {
         this.patientDisplayName = patientDisplayName;
+    }
+
+    public String getOpenmrsOrganizationId() {
+        return openmrsOrganizationId;
+    }
+
+    public void setOpenmrsOrganizationId(String openmrsOrganizationId) {
+        this.openmrsOrganizationId = openmrsOrganizationId;
+    }
+
+    public String getLocationUuid() {
+        return locationUuid;
+    }
+
+    public void setLocationUuid(String locationUuid) {
+        this.locationUuid = locationUuid;
+    }
+
+    public String getReferringSiteId() {
+        return referringSiteId;
+    }
+
+    public void setReferringSiteId(String referringSiteId) {
+        this.referringSiteId = referringSiteId;
+    }
+
+    public String getReferringSiteName() {
+        return referringSiteName;
+    }
+
+    public void setReferringSiteName(String referringSiteName) {
+        this.referringSiteName = referringSiteName;
     }
 }

@@ -19,15 +19,15 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 @Component
-public class EncounterFeedConsumer {
+public class OrganizationFeedConsumer {
 
-    private static final Logger log = LoggerFactory.getLogger(EncounterFeedConsumer.class);
+    private static final Logger log = LoggerFactory.getLogger(OrganizationFeedConsumer.class);
 
     @Value("${atomfeed.enabled:false}")
     private boolean atomFeedEnabled;
 
-    @Value("${atomfeed.openmrs.encounterFeedUrl}")
-    private String encounterFeedUrl;
+    @Value("${atomfeed.openmrs.organizationFeedUrl}")
+    private String organizationFeedUrl;
 
     @Value("${atomfeed.openmrs.username}")
     private String openmrsUsername;
@@ -45,16 +45,16 @@ public class EncounterFeedConsumer {
     private AFTransactionManager afTransactionManager;
 
     @Autowired
-    private OrderEventWorker orderEventWorker;
+    private OpenMrsOrganizationEventWorker organizationEventWorker;
 
     @Scheduled(fixedDelayString = "${atomfeed.pollIntervalMs:30000}")
-    public void pollEncounterFeed() {
+    public void pollOrganizationFeed() {
         if (!atomFeedEnabled) {
-            log.trace("AtomFeed polling disabled (atomfeed.enabled=false)");
+            log.trace("AtomFeed organization polling disabled (atomfeed.enabled=false)");
             return;
         }
 
-        log.debug("Polling OpenMRS encounter feed: {}", encounterFeedUrl);
+        log.debug("Polling OpenMRS organization feed: {}", organizationFeedUrl);
         try {
             HttpClient authHttpClient = (uri, properties, cookies) -> {
                 try {
@@ -88,11 +88,12 @@ public class EncounterFeedConsumer {
             };
 
             AtomFeedClient feedClient = new AtomFeedClient(new AllFeeds(authHttpClient), allMarkers, allFailedEvents,
-                    new AtomFeedProperties(), afTransactionManager, URI.create(encounterFeedUrl), orderEventWorker);
+                    new AtomFeedProperties(), afTransactionManager, URI.create(organizationFeedUrl),
+                    organizationEventWorker);
             feedClient.processEvents();
-            log.debug("Encounter feed poll complete");
+            log.debug("Organization feed poll complete");
         } catch (Exception e) {
-            log.error("Error polling encounter feed: {}", e.getMessage(), e);
+            log.error("Error polling organization feed: {}", e.getMessage(), e);
         }
     }
 }

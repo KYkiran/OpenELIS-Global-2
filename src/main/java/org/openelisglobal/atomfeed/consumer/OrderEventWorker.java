@@ -86,8 +86,8 @@ public class OrderEventWorker implements EventWorker {
         String conceptDisplay = BahmniEncounterParser.resolveConceptDisplay(order);
         String action = order.path("action").asText("");
 
-        log.info("Order found - uuid: '{}', type: '{}', action: '{}', voided: {}, concept: '{}'", orderUuid,
-                orderType, action, voided, conceptDisplay);
+        log.info("Order found - uuid: '{}', type: '{}', action: '{}', voided: {}, concept: '{}'", orderUuid, orderType,
+                action, voided, conceptDisplay);
 
         if (voided || "DISCONTINUE".equalsIgnoreCase(action)) {
             try {

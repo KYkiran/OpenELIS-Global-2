@@ -38,8 +38,7 @@ public class OpenMrsConceptTestMappingTest {
         test.setDescription("Hemoglobin");
         when(testService.getTestById("101")).thenReturn(test);
 
-        String csv = "OPENMRS_CONCEPT_UUID,OE2_TEST_ID,OE2_TEST_NAME,SAMPLE_TYPE\n"
-                + "aaa-bbb-ccc,101,Hemoglobin,5\n";
+        String csv = "OPENMRS_CONCEPT_UUID,OE2_TEST_ID,OE2_TEST_NAME,SAMPLE_TYPE\n" + "aaa-bbb-ccc,101,Hemoglobin,5\n";
         Path tempFile = Files.createTempFile("openmrs-concept-map", ".csv");
         Files.writeString(tempFile, csv);
 
