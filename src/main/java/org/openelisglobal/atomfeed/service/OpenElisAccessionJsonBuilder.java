@@ -1,6 +1,10 @@
 package org.openelisglobal.atomfeed.service;
 
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.apache.commons.validator.GenericValidator;
 import org.openelisglobal.analysis.service.AnalysisService;
@@ -8,7 +12,6 @@ import org.openelisglobal.analysis.valueholder.Analysis;
 import org.openelisglobal.atomfeed.dto.OpenElisAccessionDto;
 import org.openelisglobal.atomfeed.dto.OpenElisTestDetailDto;
 import org.openelisglobal.atomfeed.mapping.OpenMrsConceptTestMapping;
-import org.openelisglobal.atomfeed.repository.OpenMrsOrderMappingJdbc;
 import org.openelisglobal.common.services.IStatusService;
 import org.openelisglobal.common.services.StatusService.AnalysisStatus;
 import org.openelisglobal.patient.service.PatientService;
@@ -20,6 +23,7 @@ import org.openelisglobal.sample.service.SampleService;
 import org.openelisglobal.sample.valueholder.Sample;
 import org.openelisglobal.test.valueholder.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -44,10 +48,14 @@ public class OpenElisAccessionJsonBuilder {
     private OpenMrsConceptTestMapping conceptTestMapping;
 
     @Autowired
-    private OpenMrsOrderMappingJdbc orderMappingJdbc;
-
-    @Autowired
     private IStatusService statusService;
+
+    /**
+     * Optional OpenMRS Location uuid stamped on result encounters/visits created by
+     * the Bahmni consumer (OpenElisAccession.labLocationUuid).
+     */
+    @Value("${atomfeed.result.labLocationUuid:}")
+    private String labLocationUuid;
 
     @Transactional(readOnly = true)
     public OpenElisAccessionDto build(String accessionKey) {
@@ -58,7 +66,11 @@ public class OpenElisAccessionJsonBuilder {
 
         OpenElisAccessionDto dto = new OpenElisAccessionDto();
         dto.setAccessionUuid(sample.getFhirUuid() != null ? sample.getFhirUuidAsString() : sample.getAccessionNumber());
-        dto.setDateTime(sample.getEnteredDate() != null ? sample.getEnteredDate().toString() : null);
+        // must be Joda DateTime.parse()-able on the Bahmni side
+        dto.setDateTime(toIsoDateTime(sample.getEnteredDate()));
+        if (!GenericValidator.isBlankOrNull(labLocationUuid)) {
+            dto.setLabLocationUuid(labLocationUuid);
+        }
 
         Patient patient = sampleService.getPatient(sample);
         if (patient != null) {
@@ -70,8 +82,6 @@ public class OpenElisAccessionJsonBuilder {
                 dto.setPatientLastName(person.getLastName());
             }
         }
-
-        dto.setOrganizationId(orderMappingJdbc.getOrganizationIdByAccession(sample.getAccessionNumber()));
 
         String finishedStatusId = statusService.getStatusID(AnalysisStatus.Finalized);
         List<Analysis> analyses = analysisService.getAnalysesBySampleId(sample.getId());
@@ -92,10 +102,18 @@ public class OpenElisAccessionJsonBuilder {
             OpenElisTestDetailDto detail = new OpenElisTestDetailDto();
             detail.setTestName(test.getLocalizedName());
             conceptTestMapping.resolveConceptUuidByTestId(test.getId()).ifPresent(detail::setTestUuid);
+            if (detail.getTestUuid() == null) {
+                // the Bahmni worker NPEs on test details without a concept uuid
+                continue;
+            }
             detail.setResult(result.getValue());
             detail.setResultType(result.getResultType());
             detail.setStatus(RESULTS_FINAL_STATUS);
             detail.setAbnormal(Boolean.FALSE);
+            // the consumer skips test details with a blank dateTime
+            Date resultDate = result.getLastupdated() != null ? result.getLastupdated()
+                    : (analysis.getReleasedDate() != null ? analysis.getReleasedDate() : sample.getEnteredDate());
+            detail.setDateTime(toIsoDateTime(resultDate));
             testDetails.add(detail);
         }
         dto.setTestDetails(testDetails);
@@ -107,5 +125,11 @@ public class OpenElisAccessionJsonBuilder {
             return null;
         }
         return sampleService.getSampleByAccessionNumber(accessionKey);
+    }
+
+    private String toIsoDateTime(Date date) {
+        Date effective = date != null ? date : new Date();
+        return Instant.ofEpochMilli(effective.getTime()).atZone(ZoneId.systemDefault())
+                .format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
     }
 }

@@ -4,16 +4,22 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Mirrors org.bahmni.module.elisatomfeedclient.api.domain.OpenElisAccession.
+ * The Bahmni client deserializes with a default Jackson mapper
+ * (FAIL_ON_UNKNOWN_PROPERTIES enabled), so only field names that exist on the
+ * legacy class may be serialized here.
+ */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class OpenElisAccessionDto {
 
     private String accessionUuid;
+    private String labLocationUuid;
     private String patientUuid;
     private String patientIdentifier;
     private String patientFirstName;
     private String patientLastName;
     private String dateTime;
-    private String organizationId;
     private List<OpenElisTestDetailDto> testDetails = new ArrayList<>();
 
     public String getAccessionUuid() {
@@ -64,12 +70,12 @@ public class OpenElisAccessionDto {
         this.dateTime = dateTime;
     }
 
-    public String getOrganizationId() {
-        return organizationId;
+    public String getLabLocationUuid() {
+        return labLocationUuid;
     }
 
-    public void setOrganizationId(String organizationId) {
-        this.organizationId = organizationId;
+    public void setLabLocationUuid(String labLocationUuid) {
+        this.labLocationUuid = labLocationUuid;
     }
 
     public List<OpenElisTestDetailDto> getTestDetails() {

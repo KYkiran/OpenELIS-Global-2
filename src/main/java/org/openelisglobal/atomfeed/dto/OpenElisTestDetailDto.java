@@ -2,6 +2,12 @@ package org.openelisglobal.atomfeed.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+/**
+ * Mirrors org.bahmni.module.elisatomfeedclient.api.domain.OpenElisTestDetail.
+ * Only legacy field names may be serialized (strict Jackson mapper on the
+ * consumer side). {@code dateTime} is mandatory for the consumer to create
+ * result observations.
+ */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class OpenElisTestDetailDto {
 
@@ -12,6 +18,7 @@ public class OpenElisTestDetailDto {
     private String resultType;
     private String status;
     private Boolean abnormal;
+    private String dateTime;
 
     public String getTestName() {
         return testName;
@@ -67,5 +74,13 @@ public class OpenElisTestDetailDto {
 
     public void setAbnormal(Boolean abnormal) {
         this.abnormal = abnormal;
+    }
+
+    public String getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(String dateTime) {
+        this.dateTime = dateTime;
     }
 }

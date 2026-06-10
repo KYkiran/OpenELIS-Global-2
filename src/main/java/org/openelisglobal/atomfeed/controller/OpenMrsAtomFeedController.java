@@ -1,6 +1,5 @@
 package org.openelisglobal.atomfeed.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.openelisglobal.atomfeed.dto.OpenElisAccessionDto;
 import org.openelisglobal.atomfeed.service.AtomFeedResultFeedService;
 import org.openelisglobal.atomfeed.service.OpenElisAccessionJsonBuilder;
@@ -8,11 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Endpoints consumed by the Bahmni OpenMRS openelis-atomfeed-client. Its
+ * OpenElisAuthenticator POSTs loginName/password to the same URL it is about to
+ * GET and requires HTTP 200, so both endpoints accept GET and POST.
+ */
 @RestController
 @RequestMapping({ "/ws/feed", "/rest/openmrs-atomfeed" })
 public class OpenMrsAtomFeedController {
@@ -23,19 +27,19 @@ public class OpenMrsAtomFeedController {
     @Autowired
     private OpenElisAccessionJsonBuilder accessionJsonBuilder;
 
-    private final ObjectMapper objectMapper = new ObjectMapper();
-
-    @GetMapping(value = "/result/recent", produces = MediaType.APPLICATION_ATOM_XML_VALUE)
+    @RequestMapping(value = "/result/recent", method = { RequestMethod.GET,
+            RequestMethod.POST }, produces = MediaType.APPLICATION_ATOM_XML_VALUE)
     public ResponseEntity<String> getRecentResultFeed() {
         return ResponseEntity.ok(resultFeedService.buildRecentFeedXml());
     }
 
-    @GetMapping(value = "/accession/{accessionKey}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> getAccessionJson(@PathVariable("accessionKey") String accessionKey) throws Exception {
+    @RequestMapping(value = "/accession/{accessionKey}", method = { RequestMethod.GET,
+            RequestMethod.POST }, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<OpenElisAccessionDto> getAccessionJson(@PathVariable("accessionKey") String accessionKey) {
         OpenElisAccessionDto dto = accessionJsonBuilder.build(accessionKey);
         if (dto == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
-        return ResponseEntity.ok(objectMapper.writeValueAsString(dto));
+        return ResponseEntity.ok(dto);
     }
 }

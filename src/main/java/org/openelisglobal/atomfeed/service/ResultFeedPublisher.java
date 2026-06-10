@@ -17,7 +17,10 @@ public class ResultFeedPublisher {
 
     private static final Logger log = LoggerFactory.getLogger(ResultFeedPublisher.class);
     public static final String CATEGORY = "result";
-    public static final String TITLE = "Result";
+    // The Bahmni elisatomfeedclient dispatches events by entry title and only
+    // knows the key "accession" (OpenElisPatientFeedWorker); anything else is
+    // silently ignored.
+    public static final String TITLE = "accession";
 
     @Autowired
     private EventRecordJdbc eventRecordJdbc;

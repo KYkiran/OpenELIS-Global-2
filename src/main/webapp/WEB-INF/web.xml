@@ -77,6 +77,10 @@
             <url-pattern>*.ico</url-pattern>
             <url-pattern>/img/*</url-pattern>
             <url-pattern>/css/*</url-pattern>
+            <!-- Bahmni OpenMRS result-feed consumer talks plain HTTP in-network
+                 (its legacy httpclient cannot do TLS with the self-signed cert) -->
+            <url-pattern>/ws/feed/*</url-pattern>
+            <url-pattern>/rest/openmrs-atomfeed/*</url-pattern>
         </web-resource-collection>
         <user-data-constraint>
             <transport-guarantee>NONE</transport-guarantee>
