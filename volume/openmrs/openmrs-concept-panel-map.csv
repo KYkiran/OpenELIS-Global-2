@@ -1,0 +1,351 @@
+OPENMRS_CONCEPT_UUID,OE2_PANEL_ID,OE2_PANEL_NAME,SAMPLE_TYPE
+002ad2a6-f129-477c-b551-afa4bdc4e9de,210,Suven 1,38
+017d4b6d-9b7e-4373-ab4b-63685a9a9f9f,347,Zaggle Health Checkup,4
+0278e9cf-d4f0-468c-839f-068ed3b6db99,259,MDx Diabetes Advanced,4
+038162f3-e080-4373-a5c5-1deb2c101ddf,287,MDx Coagulation Profile - Comprehensive,3
+03e1aa44-4249-470b-b1ea-a6a43d6b7356,279,Care Heart Add On,3
+04ad933f-8534-42ec-ab16-6e3cff2def49,107,ANTI PHOSPHOLIPID ANTIBODY SCREEN,2
+05a0cbfd-9a9f-4545-acff-e24aa7f8d949,92,PANCREATITIS PROFILE,2
+07c0b294-52c2-47ea-a60f-061abe4c035d,109,CARDIAC RISK SCREENING,2
+07f68973-2aea-44cd-86ee-a719b7154906,204,DOCMED MASTER HEALTH CHECKUP FEMALE,2
+0906d1a1-8ecc-4533-b8f3-c0092a086616,114,RELIANCE LEVEL 3   HIV 1&2,2
+0a18688b-1427-4769-a5f7-8a3933b14fa9,190,ASTER HEALTH CHECK UP,2
+0b454933-6ed4-4ecd-b86c-31fccce1f861,231,Vanamali Organics Pvt Ltd,4
+0c43713d-c235-4e07-be8e-b631b8aabb9f,314,MDx Prime Senior Male-X1,2
+0c82f006-bf23-4422-a400-ab172e68d57c,301,MDx Arthritis Advanced-X1,2
+0c856ac4-dfb3-4390-9bc8-400cf07137ec,227,Glycosylated Hemoglobin(Hba1c),4
+0dcf6384-5d67-4178-a0c2-f6c985feb347,228,Sanjeevani 30 M,2
+0de6eaab-e750-4ea1-b56c-0710fa61c416,192,DIA CAMP,38
+0e1c400b-de1f-4b7a-bfa4-7af0c1e55a2c,312,MDx Prime Comprehensive Male-X1,2
+0ed33b87-e661-498e-875e-50fe2fea81fe,217,Suven Profile November,4
+1019aaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,53,Complete blood count,4
+1158b604-6349-48c4-b2eb-269f8a8f9446,198,COMPREHENSIVE HEALTH CHECK 2,2
+1276e70f-2b98-4104-855d-7865f1bcff2b,182,RELIANCE LEVEL 5,2
+12e805be-cb3c-4550-9ba6-df261a79cb7d,335,Data Marshall Health Checkup for ESIC Employees,4
+12ee5811-cc5e-4003-9728-c65adeaf96d4,63,AEGON LEVEL 1,38
+12efb124-7b4e-4d81-a988-ad67cf5babf2,75,MDx Fertility Comprehensive Female,2
+132f8914-a156-4f74-a2d0-66d080452866,179,MAX NEW YORK CATEGORY 7,2
+13f45873-ace5-49e3-8ddc-1390639a8940,283,Sequential Bio Chemical Test (SBT)-13 With Tridot Test For HIV,2
+14d2fc32-91ab-4f96-b293-adbbfa55297e,293,Preventive Health Package,2
+158928ec-6a65-4871-8860-e3fc7c945402,263,Liver Function Test (LFT) With GGT,2
+159645aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,52,Cerebrospinal Fluid Examination,40
+161199aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,46,Cytopathology,42
+161422aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,30,Hemoglobin with electrophoresis,4
+161425aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,28,Sedimentation test,4
+161426aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,27,Malarial parasites by smear test,4
+161429aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,25,Hemoglobin only,4
+161430aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,23,Routine blood panel,4
+161432aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,21,Absolute eosinophil count test,4
+161436aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,49,Clotting time test,4
+161437aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,47,Anemia panel,4
+161446aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,44,Routine urine,38
+161458aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,38,Vaginal fluid examination,46
+161461aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,37,Acid fast bacilli test,4
+161474aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,35,Hepatitis C serological test,2
+161475aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,34,Hepatitis B serological test,2
+161478aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,32,Anti-streptolysin O test,4
+161479aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,29,Rheumatoid factor test,4
+161483aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,26,Serum chemistry panel,2
+161486aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,24,Culture panel,
+161487aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,22,Diabetes panel,4
+161488aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,20,Renal function panel,2
+161492aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,51,Leutinizing hormone panel,2
+161493aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,50,Alpha fetoprotein test,4
+161498aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,48,Creatinine phosphokinase measurement,2
+161501aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,45,C-reactive protein test,4
+161506aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,43,Thyroid panel,2
+161508aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,42,Ceruloplasmin test,4
+161510aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,41,Carcinoembryonic antigen,2
+161512aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,40,Serum iron profile,2
+161515aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,39,Lipase test,4
+161518aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,36,Cardiac enzyme test,4
+161532aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,33,Serum TORCH panel,2
+161533aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,31,Serum TORCHS panel,2
+162630aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,19,Basic metabolic panel,4
+163436aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,17,Coagulation profile,3
+163679aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,13,Bacterial culture panel,
+163700aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,18,Complete blood count (auto),4
+163701aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,16,complete blood count with manual count and manual differential,4
+163702aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,15,Clotting Panel,4
+163708aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,14,Glucose tolerance test 5 specimens (75g) panel,4
+166375aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,12,Disseminated intravascular coagulation (DIC) screening panel,4
+167178aa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,11,Post-prandial blood glucose panel,4
+1675c3d0-5f3d-4fc3-8c9a-3bb82686cbab,180,FERTILITY PROFILE,2
+171f3c2d-93ff-417a-9db5-9e587d38191a,199,EXECUTIVE CARDIAC CHECK 2,2
+183a1871-a44c-490f-ae5f-d00141a3c80d,172,PRE-OP PROFILE,2
+18b320bc-6bf7-4bf4-be94-6bdb50d5400c,324,MDx Surgical Advanced-X1,2
+196789f4-12d4-453b-980a-2c2c23b9fdd5,159,TATA AIG LIFE BLOOD PROFILE A,2
+1a044ed0-97a8-4097-a4fb-fbc71575a051,336,EPE Filters Health Checkup,4
+1cb8ab6c-efc3-49f5-bcd7-5012bf39b695,205,DOCMED MASTER HEALTH CHECKUP MALE,2
+1dcc9da5-c3da-4ee0-8205-bb0330c67933,173,FASTING GLUCOSE PROFILE,3
+1dd7ec78-3065-4ebd-8cdf-50717e2eb0f2,255,MDx Anaemia Basic,2
+1ef11d72-0d3d-4a36-9071-393db5f07d65,232,MDx Bone Basic,2
+2087167e-d23f-4dc7-a9e4-28d8baa6965d,349,DhanLakshmi Packaging Industries Pvt Ltd Health Checkup,4
+20c8ea42-62a5-4f1b-bfd8-a807c8794a42,276,MDx Surgical Basic,4
+2340c8cf-f9d3-4bc5-97bf-4214c6a9474b,206,Suven Life Seinces Profile,4
+2430340f-0507-481d-bd85-39a3a05d32f6,143,Pre-Study Biochemistry,2
+24476e4d-5728-408a-9360-3804318ce237,86,HIV Monitoring Profile,4
+24c34ffa-6e6e-4c22-90af-c8b6499b97e7,119,RELIANCE FG-15,2
+24e82442-1125-443f-9e11-9ca22d834749,270,MDx HealthCheck Basic Male,2
+252c2ec6-511e-4bb1-9d84-02da0f731032,123,HSBC CATEGORY-3,2
+254d7b4f-e4ea-4512-acc0-2be3733484df,280,Care Health Assure 1 - 22,4
+2665555e-acee-49ed-99a6-b06c89849875,104,DIABETIC PROFILE - II,2
+2744ce04-a7f7-4d0e-aae9-e0ba886d797e,183,DIABETIC PROFILE III,2
+285685e0-0483-47be-8a41-d210683b3b1c,158,TATA AIG LIFE CATEGORY 1,38
+2963b1f0-b946-43b4-9a46-3a0c7238c879,77,MDx Fever Basic,4
+2e902968-2f24-405f-9526-1d64eaab2a38,171,Kidney Function Test,2
+2f78cc84-c196-4a57-a5cc-1c17145e89e6,343,Stuam Health Checkup,4
+30a4abba-7333-4313-8d7d-21e8f64ba8b6,308,MDx Prime Advanced Male-X1,4
+31dc69b9-6c6d-4161-96aa-c8413540d1f6,209,Urine Metabolic Profile,38
+328a6de9-b327-4d93-af85-65e53bb3bbe8,234,CEC Profile,2
+32dd0f6f-dd42-4ae1-a48b-a92c0b3cc126,74,AEGON LEVEL 9,2
+332bada3-9655-49d0-9b5d-c07cb4dd118e,113,RELIANCE LEVEL 3,2
+3380430c-7922-4c1b-8da4-dce6391e6e11,184,TN PROJECT PROFILE,2
+33865d5e-9416-4470-b1af-bfb8a08ba4f2,97,Torch 10 Profile (IgG And IgM),2
+3464a3f0-b630-4192-b15c-4d1b90b4ce2a,334,LV Prasad Health Checkup,4
+359893c3-d862-49c8-b5ed-8890687240b5,332,MedPlus Factory Health Checkup,4
+35cad59a-d590-4e9b-83f5-1a701ec1cc61,266,Single Adult Plan Package (Wallet Points Only),2
+36ceb2f8-a564-493d-98e9-5e135e508fd1,136,SBI CATEGORY-8,2
+36e02c85-658c-4489-9bb7-90c1e239a90c,124,HSBC BIO,2
+38501ea1-e0e4-4d49-adc9-3521c02735e3,289,MDx Thrombotic Profile - Extended,3
+39530237-4155-4efd-87d7-55cd1e16b977,85,HIV CONFIRMATION PROFILE II,2
+3978ef83-439f-45e2-8bc1-311785236908,163,TATA AIG LIFE CATEGORY 4,2
+39ad5f0e-3355-4bf2-87f9-6f8119aee21d,333,Data Marshall Health Checkup,4
+39b9f82f-7f56-47f7-a75b-4486eb7bc4cc,297,Single Adult Plan Package (Wallet Points Only) - Regional,2
+39bf815f-028d-4421-aa29-f14226df017e,351,B2B Software Technologies Ltd Health Checkup,4
+39ef93e0-9dc2-43c0-8606-a855411812d8,352,PES ENGINEERS PVT LTD HEALTH CHECKUP,4
+3af480b3-aa63-4fb2-adfb-a56b848c1dd7,200,WELL WOMAN CHECK 2,2
+3bdcbedb-67c5-42bb-9f2b-4fddf81bccc3,296,Add On 150 Package (Wallet Points Only),4
+3bf7f3c4-ee81-405b-b72c-6f6063fceb0a,139,Drugs Of Abuse - Toxicology Screening (9 Drugs),38
+3cfba4c7-ec9e-4815-a146-41c89ceb5c17,315,MDx Weight Watch Advanced-X1,2
+3d8593a4-1bb9-4610-9a45-d98d8b00a79e,148,MAX NEW YORK CATEGORY 3,2
+3f247867-a18d-4633-b058-5d94094039f3,72,Electrolyte Profile,2
+3feb9c4f-0714-43ff-a5c1-73151bc3130e,299,"Blood Culture, Aerobic (Automated)",4
+401d23b9-4342-4487-8cfc-a30ec2804b93,69,AEGON LEVEL 6,2
+4030a9ee-aecb-436d-ba48-e20d8bbd0eec,288,MDx Thrombotic profile - Basic,3
+405e12cf-0dbe-47b0-8253-f37e03443608,303,MDx Arthritis Comprehensive-X1,2
+40cbab2d-8584-4f51-8096-fc3e9a7bef81,300,HOMA IR (Insulin Resistance Index),3
+40d48caa-3440-4f9d-8678-eda955245b83,103,THYROIDITIS PROFILE,2
+40e79e02-2448-4591-8162-cf5df1c1ae93,61,ARLI-13,2
+412b9070-5a20-445a-9bb7-0437987076ee,247,Hypertension Profile,2
+43a9b87f-972f-4125-832c-c1e0ca4ee935,313,MDx Prime Senior Female-X1,4
+44485336-a5a3-4d69-9d96-8e52d4dd6faa,291,MDx Thrombotic Profile - Comprehensive,3
+4579fc35-2844-4845-9a79-b83076f16369,281,22 SURI ENGINEERS HEALTH CHECK,2
+481de87b-0306-4dc0-97dd-a813098009a8,84,AEGON LEVEL 11,2
+48cfb1f6-1a85-4f3d-b330-db8e190ee8b8,100,Torch 8 Profile (IgG and IgM),2
+48dc19c5-c193-4cfe-b39b-c7426725bd01,272,MDx HealthCheck Advanced Female,2
+497851bf-9f55-4f5c-af7e-b827a2e0baa2,175,GLUCOSE RANDOM PROFILE,3
+4b590398-a78b-4fd8-afb2-b694a1d2d9b1,187,SLE PROFILE II,2
+4c7138cc-77cf-45fb-8fcb-e9a47aae3855,71,AEGON LEVEL 7,2
+4c9f2f47-fc41-4535-a097-01d03fb3331a,292,Health Prime Rider Preventive Package,2
+4f07383c-6ca9-4c68-9dab-92c19b910351,295,Add On 500 Package (Wallet Points Only),4
+4f3afecb-f75b-4fb3-a592-eeccb8b6fa5f,248,MDx Hair Fall Female,2
+504d35ca-824c-4f07-a90b-adfc5a983df1,242,Health Checkup Basic,3
+50738d71-4ed3-4a6d-ad80-ce430714635b,112,RELIANCE LEVEL 2,38
+516c5606-3ade-434a-bcc4-c83bce717104,83,CHRONIC HEPATITIS SEROLOGY,2
+53a2025c-38ed-42c2-ab73-acd9aaa4d35a,57,ARTHRITIS PROFILE,2
+540f1f23-9ce8-472f-9c4d-4f4dac375cbb,188,HCRPF1,2
+5473aaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,8,Serum electrolytes,2
+56e2fbf2-e39a-4fd4-92f7-853e8c8d5f70,260,Electrolyte Profile With Calcium,2
+56ecf0c7-a72a-4e55-bcf1-6573758032ca,101,Torch 4 Profile (IgG),2
+58109ed3-f1c9-42b9-bd80-87ae2f5eae61,354,Premier Energies Ltd Health Check up 2,4
+5862c1b6-22a0-4dac-b6d8-48d3b9474106,344,T- Hub Health Checkup,4
+59d4eff7-b39b-46f8-b89f-7e7bd30bf292,329,Allergy Screening Basic,4
+5a6fcde9-a905-4c94-9d80-691d36b33d01,82,LIVER PROFILE,2
+5b08bd03-4c66-4b95-ac11-0761e86c4ed8,94,MDx Kidney Basic,2
+5bf07662-205d-4df0-b159-50652dd7aaa1,167,TATA AIG LIFE CATEGORY 8,2
+5d9e5ac3-da34-402f-a647-b428e2572b68,311,MDx Prime Comprehensive Female-X1,2
+5e35d12e-2a8f-4e41-b1c7-62947967aceb,305,MDx Cardiac Comprehensive-X1,2
+5e59eb6e-2eec-4cc7-b0da-f6b069cc47a5,237,Liver Function Test (LFT),2
+5fb4e6e6-e331-42da-98f3-0316cae77e54,87,AEGON LEVEL 12,2
+61706e09-1ca6-4fc0-8674-daa8f2df15c8,108,Anti Cardiolipin Antibody Screen,2
+61ae958f-87f2-4cd3-8411-899c1e7da4a1,212,Suven 3,4
+6210863d-adb2-4a49-a680-1c6d6a811b06,294,HP India Iron Package - 23,2
+628d1fe4-db8a-4f7e-8bd7-89fbefb68f87,320,MDx Whole Body Male-B-X1,2
+62e74ed5-3364-45d5-97ad-ba06c40eeb6c,262,Hepatitis B Profile,2
+639003a5-b5f4-4c3c-9209-47a20fc0e72c,60,Basic Metabolic Profile,2
+650bc422-6638-476a-943a-9328556740b5,238,MDx Diabetes Basic,4
+65630640-f9cc-4707-a0c8-7befdce14ab7,102,Torch 4 Profile (IgM),2
+65b549d7-8e68-4408-9805-b1e5bca33ec6,211,Suven 2,4
+65d0b7ba-88c6-4e58-aa60-a05ab5f8ee81,353,Premier Energies Ltd Health Check up 1,4
+6612e18e-930a-4864-a6aa-dd10e34e30a4,111,MDx Basic Child,4
+663bd953-c379-4fe8-9248-4ce984dce8e1,164,TATA AIG LIFE CATEGORY 5,2
+68f4ea81-5ea2-4529-94a8-97ed6e0dadec,134,SBI CATEGORY-6,2
+692fb463-7c49-4d31-93d4-c170db5d7235,194,PREVENTIVE HEALTH CHECK - WOMEN,2
+6ab85898-c51e-49c1-871f-d32366ac4998,327,Supreme Wellness Package (Wallet Points Only),38
+6b5bc33a-8531-440d-b1a6-d0103a1e1d96,96,Thyroid Profile Extended,2
+6d24cf09-4b37-45e6-ae76-702e1e00bd21,156,BHARTI AXA LIFE CATEGORY 7,2
+6dada2be-bfc6-40fa-acc7-5d6f47670b8f,201,WELL CHILD CHECK 2,4
+6e798ed5-7ea9-4d3b-903c-c47224ae52fe,258,Covid Immunity Profile,2
+6f96b24f-195b-4932-9e8c-6fa04f0195b5,176,LIVER FUNCTION PROFILE,2
+7006847e-5bc0-4b45-a2b6-abd1815cf164,203,DOCMED MASTER HEALTH CHECKUP HR,2
+7033c7da-2ee4-4d60-b447-d154d9e90141,319,MDx Whole Body Male-A-X1,2
+723b139f-faa6-462e-be40-2f09dfea3dc9,155,BHARTI AXA LIFE CATEGORY 5,2
+75625e31-1921-4a6c-89ca-19aa6fa33445,222,Kriti clinics,2
+762e8ded-b1f0-4bef-913d-c058a658ea65,284,KOTAK LIFE-SMA15,2
+76ed143d-89c0-4a79-b04c-78a13db437c0,117,RELIANCE PATHOLOGY,2
+78ae5080-017b-47dd-a525-2ffafe19d2a9,79,Hemolysis Profile,4
+78ba8b37-25a5-462c-a1d9-51cfcd2146c4,93,Pre Operative Profile,2
+793ac822-b1fb-49e4-b811-84a0bcbec867,240,Cardiac Risk Markers,2
+7942face-b9a6-467d-8699-f233d84d7870,105,SLE PROFILE I,2
+79aa8846-8c32-4492-9981-4b8ef554a987,80,AEGON LEVEL 10,2
+7a21a9e9-f4a0-43c0-b470-397f2e400498,196,AIZANT POST STUDY PROFILE,2
+7a77175a-e814-401b-8104-3da3a53bb15f,91,MALE FERTILITY PROFILE,2
+7a804e93-e5dd-47fa-b7d8-50d290d9cf4e,322,Ctrl S Health Checkup - Fasting,2
+7cf70830-2b58-42ad-883e-c53e6e35cf56,185,PYREXIA PROFILE,4
+7d01d6e3-ccaf-4504-831a-d02138dbb563,125,HSBC CATEGORY-4,2
+7d81d002-320b-4b24-8556-dc4016a51744,121,ICICI LIFE INSURANCE PROFILE,4
+7d9101d6-92ce-4649-8034-444186e3e7a4,325,Ctrl S Health Checkup - Non Fasting,2
+7fc53b6e-a0fa-4c39-b819-a89ffcb23db1,273,MDx Weight Watch Basic,2
+7ff5d401-e809-4e1c-abad-0a345f40ed65,165,TATA AIG LIFE CATEGORY 6,2
+8046d2e8-fe75-4e91-b52c-1f3593ceea61,346,MDx TeenCheck Advanced Female-X1,2
+807f6aa1-1fb9-4aa1-b1a7-57ea65047c5d,181,DEEP VENUS THROMBOSIS PROFILE,3
+80d0d7db-ec58-41db-a4d9-b53209ce2f02,68,AEGON LEVEL 5,2
+81300bf0-eee5-4a47-899c-a8012ef49f4c,55,ANTENATAL PROFILE,4
+822f8d2e-1910-442a-9872-73357f6078b6,128,HSBC CATEGORY 7,2
+84435b85-b21b-4422-89a1-20c7736a0b2f,225,Post Policy Profile 2,4
+84d6ae69-477d-402e-9f4d-3939863e0778,246,COVID Monitoring,2
+85681385-6347-4334-ac35-686265644d8d,89,AEGON LEVEL 13,2
+86bd98d8-d7a3-4aec-8b7f-2c933bbfc60b,135,SBI CATEGORY-7,2
+87415291-2424-4a39-840d-78302b546dc2,310,MDx Prime Basic Male-X1,4
+885499fa-ba0f-43bf-9fdb-6f1a07f5b8bc,9,Urine macroscopy panel (dipstick),
+886e3ca0-afd6-4c64-a219-a9222d9cc77c,341,eYantra Health Checkup,4
+88df9b5d-cd31-4b18-b18a-d99b177be92f,59,MDx Fertility Basic Female,2
+890ece18-6018-4c8f-9fbc-517a02c342a5,309,MDx Prime Basic Female-X1,2
+893bd1cc-e5ec-4769-9824-a25a962852d9,219,BIG BAZAR 1,4
+895f19f4-b4fc-49f2-9e81-8854dbea38ca,66,Comprehensive Metabolic Profile,2
+89929ff2-26f7-462a-9d1f-6789edc09eed,221,HDFC ERGO,2
+8a26a3e2-3273-4d85-893b-3f3f790755ef,220,Sri Diagnostic 1,2
+8a5cf887-773e-4286-8221-c4dec2c2dd84,88,Iron Deficiency Anaemia Profile,2
+8a834b9b-60e7-4894-be9c-8be2479f00c9,356,Employee Welfare Association Hedge health checkup,4
+8b145394-a938-4849-b9d1-9b3d5be767de,137,SBI CATEGORY-9,3
+8d2f557a-237c-4a62-aa16-ff75ce3d86e3,141,PRE STUDY PROFILE,2
+8d41dcb2-f3f5-4b7e-8e56-497e4c32e477,73,AEGON LEVEL 8,2
+8d4f66b5-16ae-4637-8505-57fb3d9eae63,98,Torch 5 Profile (IgG),2
+8eb7ce75-c3c0-45fe-bda0-d1ac1bdfabab,274,MDx HealthCheck Basic Female,2
+8f1ec95d-88ef-4fcf-91a7-cf77eab0dd5c,132,SBI CATEGORY-4,3
+8f5bc283-bd7a-48b9-a9ca-f93130ae16e3,251,COVID IMMUNITY CHECK PROFILE,2
+8f7c5a8d-8981-4bd0-a454-53a490b2edd1,269,MDx HealthCheck Advanced Male,2
+925769bb-db87-4059-acb7-671cc7a9aa7a,142,POST STUDY PROFILE,2
+92da613e-9706-4242-9701-e1e8425e20a0,120,KOTAK LIFE INSURANCE PROFILE,2
+933e27bb-e72e-4b92-98d1-33dd538d68a0,202,DIABETES MONITORING EXTENDED PROFILE,2
+946982a9-406f-4d98-ab36-de63bb3030f0,252,Post Covid Recovery Profile,2
+953aaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaaaa,7,Liver function tests,2
+95a84ce1-b4ab-4685-ae60-444bdca4b2f6,323,MDx Surgical Comprehensive-X1,2
+95b2ac83-ca4b-45e0-8f30-34d368e76348,216,NRDCS 3,2
+9678c44e-1cc5-414c-bcb7-4a7503ba0867,147,BLOOD PROFILE,2
+96f8572f-60f8-4303-bf5f-375f847a94b2,118,RELIANCE BLOOD PROFILE,2
+9830a8ae-3a45-454e-b3c6-6495249ac8dd,106,Drugs Of Abuse - Toxicology Screening (6 Drugs),38
+986b68fa-fa12-4ec3-a617-cde0847e2609,127,HSBC CATEGORY 6,2
+98c20fe6-0215-450c-bd00-c7171625a80b,345,MDx TeenCheck Basic Female-X1,2
+991f01d9-265c-43c7-87f8-b36291f722d2,56,ACUTE HEPATITIS PROFILE,2
+992864a3-390e-4148-9879-9d165a3cc1b6,233,Free Androgen Index,2
+9a8cd428-9ae2-42d3-ac05-ad3972d9aef0,342,Azad Health Checkup,4
+9ae2a5e4-0e77-4a97-9fbf-f49b032f8b76,302,MDx Arthritis Basic-X1,2
+9bb43d17-c9c9-4590-adbd-29d0a6d75dde,178,MAX NEW YORK CATEGORY 6,2
+9d1eb16b-69a3-4ae6-a7ee-78f18014e759,150,BHARTI AXA LIFE CATEGORY 1,38
+9e178103-d092-4f6b-96b9-991759e29c6f,339,Nephro Care Health Checkup,4
+9f1c75a8-71d1-493b-aa70-8c77542938d8,131,SBI CATEGORY-3,3
+a0bc5bd9-21aa-4a44-90d6-95fcb139f930,275,MDx HealthCheck Comprehensive Male,2
+a101d1ef-a8f1-4a5b-b010-91c8c5f6f14b,318,MDx Whole Body Female-B-X1,2
+a111a220-d630-433d-a278-b39d6dcccf17,95,Thyroid Profile,2
+a3017df2-5f59-413f-96de-96d2b003eb5e,229,Sanjeevani 30 F,2
+a46717bf-a745-41c4-a5a5-b1845430973e,218,Suven profile December,4
+a5d8a3f8-2fd5-4520-8a83-97450f94d9b5,254,Autoimmune Hepatitis Profile,2
+a7182352-a2d5-42a0-bea8-fc530317a86b,195,DOC Profile,2
+a748d2d3-b508-48b2-a10c-2d51944c2851,243,Health Checkup Advanced,4
+a7699cf9-03ac-456c-85ec-56c5a402fba6,166,TATA AIG LIFE CATEGORY 7,2
+a80265f9-3bda-4e65-8b34-47ccebc2a355,239,Kidney Profile,2
+a87a25da-fb3d-4f7c-b10c-11a07b4e5d9b,321,Thalassemia Profile,4
+a88cd58d-cd3c-4489-b493-58473999bd55,130,HSBC CATEGORY-11,3
+a97fd3bb-89b1-4244-ae44-ecae73cba3ab,224,Post Policy Profile 1,4
+a9b76fff-199d-4131-8999-d0276f71b40f,145,MAX NEW YORK CATEGORY 1,38
+a9b8332f-0a6c-4b9b-be25-e3641c53720d,153,BHARTI AXA LIFE CATEGORY 4,2
+aa0c0f9e-9ad3-49f6-add5-2a751a6fa327,152,BHARTI AXA LIFE CATEGORY 3,2
+abe641d2-d5fd-401d-b57b-c23859973009,286,MDx Coagulation Profile - Advanced,3
+ae417dec-acfc-4d6b-a1e8-419b75858d1a,70,DIC PROFILE,3
+ae604883-6d6e-41de-b298-74526bbc6ee5,330,Immunofixation Electrophoresis - Quantitative,2
+af0fec0f-89fb-4526-97fe-029e8fc9dfd1,76,MDx Antenatal Comprehensive,2
+afa56589-0223-431b-b5ea-7e5862815045,244,KIDNEY FUNCTION PROFILE 2,2
+b424b6a1-e208-4397-8111-4e7e5fc669a8,129,HSBC CATEGORY 8,2
+b52f62e4-f6b6-4541-a9f4-3a17145e6f24,264,MDx Fertility Basic Male,2
+b5ac2912-3a34-4ab9-bdb6-b5c147b0da09,215,NRDCS 2,2
+b621a999-66fc-4341-8eac-75b6e8ba29de,256,MDx Bone Advanced,2
+b6e1bb48-e83e-45a0-858e-bb4a8dcd7af2,54,MDx Anaemia Advanced,2
+b6ecd027-e71f-424d-93b3-260f1f2cb1d5,253,MDx Antenatal Advanced,2
+b75e9728-6b34-4cc5-8b4b-c9b4a533abc7,189,BHARTI AXA LIFE CATEGORY 6,2
+b7656585-ace6-4f92-8fb2-6a259e6625e1,151,BHARTI AXA LIFE CATEGORY 2,2
+b899c543-5ecd-4d80-8547-a7da30f37890,65,AEGON LEVEL 3,2
+b8aeeeb4-3552-4142-b07d-9b7082f06caf,235,MDx Antenatal Basic,2
+bcae9fd8-e4ff-4884-b7e1-995fe62cd1ea,271,MDx HealthCheck Comprehensive Female,2
+bce66a09-c7ba-4d87-8ba5-a7ad626c13c2,337,Monsoon 2024 Special Package (Wallet Points Only),3
+bdb3e9cc-da1c-408f-b719-636e2915b699,338,TN Health Care Services Plan Package (Wallet Points Only),4
+c140659e-f921-4637-b028-6ff3dfdc09a0,257,MDx Fertility Advanced Female,2
+c2951d32-df1f-4987-8ab0-9b36f83c5e5c,99,Torch 5 Profile (IgM),2
+c3daf9d1-abdc-46c6-8bce-dc51e5ec3348,197,ICICI PROFILE,4
+c49789a0-c26e-4f4b-a70b-261dfc306091,62,BREAST TUMOR PROGNOSIS PROFILE,42
+c59610bc-47fe-4e6c-ad56-693368b95bc3,122,HSBC CATEGORY-2,2
+c7ae1ce2-7e6c-4dfc-829e-9f07492ba6c0,285,MDx Coagulation Profile - Extended,3
+c9b23844-d44a-4533-af7a-23a02cc5af3a,140,Thyroid Profile Free,2
+cb387d45-d7ae-4c3e-9cb1-d2e14f45ee67,58,AUTOIMMUNE HEPATIC PROFILE,2
+cb40c349-8f7a-428d-8ff0-4af7f2f3f41c,81,HEPATIC FUNCTION PROFILE,2
+cc986905-59c5-4771-aac9-51257c2826d1,249,INFERTILITY SCREENING PANEL,2
+cdd7952e-27c5-4fbc-bef3-d52d45480265,326,MDx Jyms Protocol Advanced,2
+d0875801-5ceb-436d-a4b8-7cad444fd65a,316,MDx Weight Watch Comprehensive-X1,2
+d09311d2-8cb1-4990-a6ce-f49e7924668b,138,HIV Confirmation Profile,4
+d1e2b1af-5333-4db9-ad68-2ce793b0811b,110,COMPREHENSIVE HEALTH & CARDIAC CHECK,2
+d3f80a31-39b1-47f5-99ec-91a80f4a2fa7,277,ATTARWALA HUMAN RESOURCE HEALTH CHECK,4
+d46913e1-fbfd-4a1b-b0bc-bd2de2e8ac7e,160,TATA AIG LIFE BLOOD PROFILE B,2
+d50d780b-17b4-40f0-8c07-d82478413a12,78,AIZANT PROFILE,2
+d510254e-7226-4943-8003-6c02e001e105,177,MAX NEW YORK CATEGORY 4,2
+d58c3e79-3de8-465b-958c-97864695fe1b,230,Sanjeevani Routiens,2
+d7672e35-377b-414b-8059-0882d48f8483,268,MDx Monsoon Basic,4
+d8407ce5-8e25-4926-a16b-adcf3c06db6e,64,AEGON LEVEL 2,2
+d8507887-1fbd-4adf-bd74-b3ea8807f7e6,169,URINE TOXICOLOGY SCREEN (5 DRUGS),38
+d89cbf39-9c14-455f-a772-9a5af74a7940,236,Hepatitis Profile,2
+d9291699-f78d-4379-984b-f19de867f08b,193,PREVENTIVE HEALTH CHECK FOR MEN,2
+d95ac282-609d-4ec2-81a3-d2a8697c0d16,307,MDx Prime Advanced Female-X1,4
+d96fe901-eb2f-4ca3-a58b-c08d76eb8d12,116,RELIANCE LEVEL 4   HIV 1&2,2
+d9dbf357-59b5-47f0-8d13-2425c41a103c,154,BHARTI AXA LIFE BLOOD PROFILE,2
+db01beb9-befb-452e-a92d-829ed63080f7,223,"Vitamin D3,B12",2
+ddb33c18-0685-4a5d-aaf3-39bc59518c21,126,HSBC CATEGORY 5,2
+de89b3f6-3745-41e9-9699-429951c76179,191,ASTER PRE EMPLOYEMENT CHECK UP,4
+debfc837-a2c2-47a5-9078-802b181685ab,213,Sravya Compact Residency Profile,2
+e00b54ec-9716-42fd-ac18-bd0f3c46a3d8,265,Rheumatoid Arthritis Panel,2
+e3d332ad-841b-42b2-9e4a-0f99b01db988,304,MDx Cardiac Advanced-X1,2
+e42e1148-dce7-46f7-a9ee-0299938429dd,282,Sequential Bio Chemical Test (SBT)-13 With Elisa Test For HIV,2
+e431f8e5-8119-4e36-8208-b66d571d73a6,207,Diabetic Day Profile,3
+e48466e4-867a-4567-89fc-171b046bb491,226,Post Policy Profile 3,2
+e99839ee-296b-4220-babf-46803e6f9f6c,162,TATA AIG LIFE CATEGORY 2,2
+ea8cd1c6-988e-4c1d-b06b-95b18e826fa0,348,TMInputs and Services Private Limited Health Checkup,4
+eae8c0af-96f1-4ef3-ac65-5a356d681510,149,MAX NEW YORK CATEGORY 5,2
+eb057b9b-f1d8-4970-9f45-f4af9ce344dd,350,Girik Elegance Health Checkup,4
+ecc30479-a1d8-43ec-8ddd-40febcb3fa24,157,BHARTI AXA LIFE CATEGORY 8,2
+ecfba9e7-d007-46ea-8d49-999e5660f027,298,MDx Fever Comprehensive,2
+edcd0296-6fe0-4fc5-a357-b7953c3bce43,90,Lipid Profile,2
+edea8fc4-5726-4d99-9be8-11075514bc15,340,Ratnadeep Health Checkup,4
+edf8ad40-3cb2-4e45-942e-e768136f050d,67,AEGON LEVEL 4,2
+ee6e2382-2ede-4c96-9061-eaf3f2d24a1a,214,NRDCS 1,2
+ee8a6219-b633-46c5-9905-b39aa2dc8a2d,278,Care Health New Silver 22,2
+f0fba48b-08da-414e-a020-a676acba24cc,267,Couple Plan Package (Wallet Points Only),4
+f14dddd4-b811-475e-9d12-da51f8377761,208,FITCH RATINGS UNDER 40 PROFILE,2
+f19617dc-ac37-4706-9b29-2d2081671b0f,115,RELIANCE LEVEL 4,2
+f199f727-3301-45f1-b3c7-ad63bc8454cf,144,Pre-Study Serology,2
+f2102bf5-bbf6-4ec2-a8f9-0be3ffd7f4e5,250,Covid Monitoring Profile,2
+f35851f5-85cd-4080-abb3-62950ffa2646,290,MDx Thrombotic Profile - Advanced,3
+f4211970-315e-43cc-89cb-612e9eda9ea4,133,SBI CATEGORY-5,2
+f5c3d3e7-bd6d-404a-8fd0-41e3694e5e03,317,MDx Whole Body Female-A-X1,4
+f7b0505a-6b19-490b-a718-8431d9a4d33a,306,MDx Diabetes Comprehensive-X1,2
+f808aba6-cec9-4282-b8da-3edf61b8ddf1,170,CARDIAC CHECK UP,2
+f8392e6a-4c40-4175-8d27-43fbac31b238,168,TATA AIG LIFE CATEGORY 9,2
+f88695b3-ce14-468f-aa43-59568c344c26,331,Aurobindo Health Checkup,4
+f934a061-49d8-4d3c-a2e4-cc649f5f70e5,174,GLUCOSE POST PRANDIAL PROFILE,3
+fa981970-db7e-4972-b061-01b076e2626b,10,"Drugs of abuse panel, urine",38
+fad8c973-d007-454a-9ad6-b503c1d44971,328,Agent Induction Package,4
+fc078e5c-25bb-4cc3-a027-9c2712a6356b,186,COLLAGEN PROFILE,2
+fc08db07-3a82-4cc7-a050-e09667e21a77,261,MDx Fever Advanced,2
+fccb017b-d3e3-49c9-9ed7-f740d4241a7e,241,Health Camp Package,2
+fcd4472a-90d7-4d0b-80a4-fa44fcb6aa48,355,CC Promotional Healthcheck,2
+fd7864ae-181f-4579-afce-136d9f1baf6a,146,MAX NEW YORK CATEGORY 2,4
+fed847f7-aa26-4442-90d3-7e1989885869,161,TATA AIG LIFE BLOOD PROFILE C,2
+ff0b2d86-29d3-46a5-9909-4b72ba66ee20,245,Medplus camp profile,2
